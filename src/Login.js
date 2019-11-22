@@ -43,28 +43,55 @@ handleSubmit(event) {
 }
 render() {
     return (
-        <div>
-            <form onSubmit={this.handleSubmit}>
-                <input
+        <div className="row">
+    <form className="col s12">
+      <div className="row">
+        <div className="input-field col s12" id="userIn">
+        <input className="username"
                 type="email"
                 name="email"
-                placeholder="Username"
-                value={this.state.email}
-                onChange={this.handleChange}
                 required
                 />
-                <input
+          <label id="email">Email</label>
+        </div>
+        <div className="input-field col s12" id="passIn">
+        <input className="password"
                 type="password"
                 name="password"
-                placeholder="Password"
-                value={this.state.password}
-                onChange={this.handleChange}
                 required
                 />
-                <button type="submit">Login</button>
-
-            </form>
+          <label id="password">Password</label>
         </div>
+         <button id="loginBtn" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+        
+        
+
+
+        // <div>
+        //     <form onSubmit={this.handleSubmit}>
+        //         <input className="username"
+        //         type="email"
+        //         name="email"
+        //         placeholder="Username"
+        //         value={this.state.email}
+        //         onChange={this.handleChange}
+        //         required
+        //         />
+        //         <input className="password"
+        //         type="password"
+        //         name="password"
+        //         placeholder="Password"
+        //         value={this.state.password}
+        //         onChange={this.handleChange}
+        //         required
+        //         />
+        //         <button type="submit">Login</button>
+
+        //     </form>
+        // </div>
     )
 }
 }

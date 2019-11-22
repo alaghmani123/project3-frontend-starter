@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import axios from 'axios';
 import Login from '../src/Login';
-import Registration from '../src/Registration';
+
 // const databaseUrl = process.env.HEROKU_DB_URL || 'http://localhost:3000'
 const databaseUrl = 'https://project3-backend-test.herokuapp.com'
 
@@ -20,7 +19,9 @@ class App extends React.Component {
     return (
       <div className="App" >
         <header className="App-header">
-          <h1>DECKSTER</h1>
+          <h1 className="title">DECKSTER</h1>
+          
+          
           <div className="signin">
             <Login/>
             <button className="regSubmit" type="submit">Register Now!</button>
