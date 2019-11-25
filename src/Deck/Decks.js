@@ -1,6 +1,6 @@
-import React from 'react';
+import React from './node_modules/react';
 import './App.css';
-import axios from 'axios';
+import axios from './node_modules/axios';
 // const databaseUrl = process.env.HEROKU_DB_URL || 'http://localhost:3000'
 const databaseUrl = 'https://project3-backend-test.herokuapp.com'
 

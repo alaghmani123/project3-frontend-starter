@@ -1,12 +1,12 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-    state = { term: '' };
+    state = { searchFor: '' };
 
     onFormSubmit = (event) => {
         event.preventDefault();
 
-        this.props.onSubmit(this.state.term);
+        this.props.onSubmit(this.state.searchFor);
 
     };
     render() {
@@ -17,8 +17,8 @@ class SearchBar extends React.Component {
                         <label>image search </label>
                         <input
                             type="text"
-                            value={this.state.term}
-                            onChange={e => this.setState({ term: e.target.value })} />
+                            value={this.state.searchFor}
+                            onChange={e => this.setState({ searchFor: e.target.value })} />
                     </div>
                 </form>
             </div>
