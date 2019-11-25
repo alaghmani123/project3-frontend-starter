@@ -2,7 +2,7 @@
   height: 40vmin;
 }
 
-.App-header {
+/* .App-header {
   background: #f857a6;
   background: -webkit-linear-gradient(to right, #ff5858, #f857a6);
   background: linear-gradient(to right, #f857a6, #ff5858);
@@ -11,45 +11,41 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.title{
-  font-family: 'Mountains of Christmas', cursive;
-  font-size: 150px;
-}
-#email, #password {
-  font-family: 'Patrick Hand', cursive;
-  font-size: 35px;
-  color: black;
+  font-size: calc(10px + 2vmin);
+  color: white;
+} */
+
+body {
+  background-image: linear-gradient(135deg, #5efce8 10%, #736efe 100%);
+  /* background-image: linear-gradient(135deg, #f6ceec 10%, #d939cd 100%); */
+  /* background-image: linear-gradient(135deg, #f5cbff 10%, #c346c2 100%); */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
+.App-link {
+  color: #09d3ac;
+}
 .username {
-  /* margin: 5px;
-  padding: 5px; */
+  margin: 5px;
+  padding: 5px;
   border: 2px solid black;
   border-radius: 3px;
-  color: black;
-  font-size: 50px;
-  font-display: bold;
-  font-family: 'Patrick Hand', cursive;
 }
-/* #passIn {
-  border: 2px solid black;
-} */
-.password{
-  /* margin: 5px;
-  padding: 5px; */
+.password {
+  margin: 5px;
+  padding: 5px;
   border: 2px solid black;
   border-radius: 3px;
-  font-family: 'Patrick Hand', cursive;
-  color: black;
-  font-size: 50px;
-}
-#loginBtn {
-  align-items: center;
 }
 .homeBtns {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: space-between;
 }
 .newDeckBtn {
