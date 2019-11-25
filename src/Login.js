@@ -1,98 +1,110 @@
 import React, { Component } from "react";
+import "./Login.css";
 import axios from "axios";
 
+let databaseURL = "http://localhost:3000/api/";
 
 class Login extends Component {
-    constructor(props) {
-        super(props);
+  state = {
+    newUser: {}
+  };
 
-        this.state = {
-            username: "",
-            password: "",
-            handleErrors: ""
-        };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    }
-handleChange(event) {
-    this.setState({
-        [event.target.name]: event.target.value
+  createUser = event => {
+    event.preventDefault();
+    axios({
+      url: databaseURL + "users",
+      method: "post",
+      data: this.state.newUser
+    }).then(response => {
+      console.log(response);
+      // this.setState(prevState => ({
+      //   users: [...prevState.users, response.data.user]
+      // }));
     });
-}
-handleSubmit(event) {
-    const { email, password } = this.state;
+  };
 
-  axios
-  .post(
-      "https://localhost:3001/api/users",
-      {
-          user:{
-              email: email,
-              password: password
-          }
-      },
-      { withCredentials: true }
-  )
-  .then(response => {
-      console.log("logged in", response);
-  })
-  .catch(error => {
-      console.log("handle error", error);
-  });
-  event.preventDefault();
-}
-render() {
+  componentDidMount() {}
+
+  handleChange = event => {
+    // console.log(event.target.value);
+    // console.log(event.target.name);
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+    console.log(this.state.first_name);
+    console.log(this.state.last_name);
+  };
+
+  handleSubmit = event => {};
+
+  render() {
     return (
-        <div className="row">
-    <form className="col s12">
       <div className="row">
-        <div className="input-field col s12" id="userIn">
-        <input className="username"
-                type="email"
-                name="email"
-                required
-                />
-          <label id="email">Email</label>
-        </div>
-        <div className="input-field col s12" id="passIn">
-        <input className="password"
-                type="password"
-                name="password"
-                required
-                />
-          <label id="password">Password</label>
-        </div>
-         <button id="loginBtn" type="submit">Login</button>
+        <form
+          // onSubmit={this.createUser}
+          onChange={this.handleChange}
+          className="col s12"
+        >
+          <div className="row">
+            <div className="input-field col s12">
+              <input
+                // value={this.state.first_name}
+                onChange={this.handleChange}
+                id="first_name"
+                type="text"
+                className="validate"
+                name="first_name"
+              />
+              <label htmlFor="first_name">First Name</label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="input-field col s12 ">
+              <input
+                id="last_name"
+                type="text"
+                className="validate"
+                // value={this.state.last_name}
+                onChange={this.handleChange}
+                name="last_name"
+              />
+              <label htmlFor="last_name">Last Name</label>
+            </div>
+          </div>
+          <button
+            className="btn waves-effect waves-light green accent-2"
+            type="submit"
+            name="action"
+            onClick={this.createUser}
+          >
+            Submit
+            <i className="material-icons right ">send</i>
+          </button>
+        </form>
       </div>
-    </form>
-  </div>
-        
-        
-
-
-        // <div>
-        //     <form onSubmit={this.handleSubmit}>
-        //         <input className="username"
-        //         type="email"
-        //         name="email"
-        //         placeholder="Username"
-        //         value={this.state.email}
-        //         onChange={this.handleChange}
-        //         required
-        //         />
-        //         <input className="password"
-        //         type="password"
-        //         name="password"
-        //         placeholder="Password"
-        //         value={this.state.password}
-        //         onChange={this.handleChange}
-        //         required
-        //         />
-        //         <button type="submit">Login</button>
-
-        //     </form>
-        // </div>
-    )
-}
+      //   <div>
+      //     <form onSubmit={this.handleSubmit}>
+      //       <input
+      //         class="input-field inline"
+      //         type="email"
+      //         name="email"
+      //         placeholder="Username"
+      //         value={this.state.email}
+      //         onChange={this.handleChange}
+      //         required
+      //       />
+      //       <input
+      //         type="password"
+      //         name="password"
+      //         placeholder="Password"
+      //         value={this.state.password}
+      //         onChange={this.handleChange}
+      //         required
+      //       />
+      //       <button type="submit">Login</button>
+      //     </form>
+      //   </div>
+    );
+  }
 }
 export default Login;
